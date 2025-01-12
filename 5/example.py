@@ -1,5 +1,5 @@
 
-def s(n, q):
+def s(n):
     _ = ''
     while n != 0:
         _ += str(n%3)

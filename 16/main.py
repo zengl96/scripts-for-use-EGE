@@ -2,15 +2,22 @@
 
 from functools import *
 
-@lru_cache
+
+
+@lru_cache(None)
 def f(n):
 
-    if n<5:
-        return 5
-    else:
-        return 2*n*f(n-4)
-
-
-for i in range(1,14000):
+    if n<3:
+        return n
+    if n%2 != 0 and n>2:
+        return f(n-1)+f(n-2)+1
+    if n%2 == 0 and n>2:
+        sum_ = 0
+        for i in range(1,n):
+            sum_ += f(i)
+        return sum_
+    
+for i in range(3,4500):
     f(i)
-print((f(13766)-9*f(13762))/f(13758))
+
+print(f(38))
