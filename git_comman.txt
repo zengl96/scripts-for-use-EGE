@@ -1,0 +1,35 @@
+git status   - проверка статуса
+
+git add .    - добавить все обновленные файлы
+
+git rm --cached <NAME>   - если в add пришел не тот файл 
+
+git commit -a -m"init"   - Создать коммит с коментарием инит
+
+git checkout  -- <NAME>
+
+git log - посмотреть логи
+
+git checkout -b new_f  - создать новую ветку
+
+git branch - просмотреть ветки
+
+git branch -v - подробный просмотр веток
+
+git checkout main - переключение веток
+
+
+git config --global merge.tool kdiff3 - подгрузить редактор для объеденения файлов
+
+git merge main - объеденить основную ветку с побочной
+
+git mergetool -  разрешить конфликт
+
+git config --global mergetool.kdiff3.cmd '"C:\\Program Files\\KDiff3\kdiff3"  $BASE $LOCAL $REMOTE -o $MERGED' - использовать kdiff3 Для мерджа
+
+git config --global push.default matching - хз че это
+
+
+git branch -d <NAME>  - удалить ветку
+
+git remote prune origin  - удаление удаленных веток
