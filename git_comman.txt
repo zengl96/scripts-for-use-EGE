@@ -33,3 +33,9 @@ git config --global push.default matching - хз че это
 git branch -d <NAME>  - удалить ветку
 
 git remote prune origin  - удаление удаленных веток
+
+
+
+git push origin main --force - если вдруг все удалилось. Если вы хотите игнорировать изменения в удаленном репозитории и просто перезаписать его содержимое своими локальными файлами
+
+git reset --hard 1bf47591da424addfecee6e88a13c7ee5169f746  - возращает к старому комитту
