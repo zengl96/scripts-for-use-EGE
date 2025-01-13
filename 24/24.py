@@ -1,28 +1,17 @@
 
 
-s = open('24/24_17878.txt').readline()
+s = open('24/24.txt').readline()
 
-
-while '-*' in s: s = s.replace('-*', '- *')
-while '*-' in s: s = s.replace('*-', '* -')
-while '--' in s: s = s.replace('--', '- -')
-while '**' in s: s = s.replace('**', '* *')
+while 'FSRQ' in s: s = s.replace('FSRQ', ' ')
 
 s = s.split(' ')
-m = 0
+# print(s, s[0], s[1])
 
-for ind in s:
+q = 0
+for i in range(0, len(s)):
 
-    if len(ind)>m:
-        for i in range(len(ind)-1):
-            pos = ind[i]
-            
-            if ind[i] not in '*' and ind[i]+ind[i+1] not in ['00','06', '07','08','09']:
+    a = ''.join(s[i:i+81])
+    res = len(a) + 4*80+3+3
+    q = max(q,res)
 
-                for j in range(i+1, len(ind)):
-                    pos += ind[j]
-                    if ind[j] not in '-*':
-                        m = max(m, len(pos))
-
-
-print(m)
+print(q)

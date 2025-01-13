@@ -4,15 +4,12 @@
 from ipaddress import *
 
 
+for m in range(33):
+    net1 = ip_network(f'216.54.187.235/{m}',0)
+    net2 = ip_network(f'216.54.174.128/{m}',0)
 
-net = ip_network('172.16.168.0/255.255.248.0')
+    if net1.network_address != net2.network_address:
 
-print(len([s for s in net]))
-c = 0
-for ip in net:
-
-    print(bin(int(ip))[2:].count('1'))
-    if (bin(int(ip))[2:].count('1'))%5!=0:
-        c+=1
-
-print(c)
+        if net1[0] < IPv4Address('216.54.187.235') < net1[-1]:
+            if net2[0] < IPv4Address('216.54.174.128') < net2[-1]:
+                print(m)
