@@ -1,17 +1,14 @@
 from itertools import  product
 from time import sleep
-k = 0
 
 
-def _(n):
-    return n%2 == 0
+c=0
+for i in product('0123456', repeat=7):
 
-for i in product([i for i in range(20)],repeat = 5):
+    a = ''.join(i)
+    if a[0] != '0':
+        if a.count('0')+a.count('2')+a.count('4')+a.count('6') == 2:
+            c+=1
 
-    if (any(list(map(_, i[::2]))) == False and all(list(map(_, i[1::2]))) == True) or (all(list(map(_, i[::2]))) == True and any(list(map(_, i[1::2]))) == False):
 
-        if (i[0] + i[-1]) == 26:
-
-            k +=1
-
-print(k)
+print(c)
