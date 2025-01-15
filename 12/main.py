@@ -1,25 +1,20 @@
 
 
 
-for n in range(2, 1000):
+for n in range(4, 1000):
 
-    s = '59' + '8'*n
+    k = '5'+'2'*n
 
-    while '68' in s or '988' in s or '888' in s:
+    while '52' in k or '2222' in k or '1122' in k:
 
+        if '52' in k:
+            k = k.replace('52','11',1)
+        if '2222' in k:
+            k = k.replace('2222','5',1)
+        if '1122' in k:
+            k = k.replace('1122','25',1)
 
-        if '68' in s:
-            s = s.replace('68', '8',1)
-        if '988' in s:
-            s = s.replace('988', '86',1)
-        if '888' in s:
-            s = s.replace('888', '9',1)
-
-
-    sum_ = 0
-    for i in s:
-        sum_ += int(i)
-    print(sum_, n)
-    if str(sum_ ** (1/3)).split('.')[-1] == '0':
-
-        break
+    if sum(list(map(int,k))) == 64:
+        print(n)
+            
+            

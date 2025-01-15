@@ -1,24 +1,20 @@
 
 
-# for x in[k*0.25 for k in range(-10_000, 10_000)]:
 
-#     B = 23 <= x <= 37
-#     C = 41 <= x <= 73
+def dell(n,m):
+    return n%m==0
 
-#     A = 0
+def f(x,A):
 
-#     f =(not ((  (not (B))<=(C)  ))  <= (A)  )
+    return dell(x,A)or((70<=x<=90)<=(not dell(x,22)))
 
-#     if f == (not A):
-#         print(x)
+_ = True
+for A in range(1, 1000):
+    for x in range(1,1500):
 
+        if f(x,A) == 0:
+            _ = False
 
-x = 54534645
-B = 23 <= x <= 37
-C = 41 <= x <= 73
-
-A = 0
-
-f =(not ((  (not (B))<=(C)  ))  <= ( 23 <= x <= 73)  )
-
-print(f)
+    if _ == True:
+        print(A)
+    _ = True

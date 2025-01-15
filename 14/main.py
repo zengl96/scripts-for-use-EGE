@@ -2,17 +2,7 @@
 
 
 
-for x in '0123456789abcdefghijklmnopqrstuvxy'.upper():
+for x in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17']:
 
-    a = int(f'6{x}QR{x}',35) + int(f'{x}59SH',35) + int(f'PH{x}69YW',35)
-    
-    most_popular = {}
-    for i in str(a):
-
-        most_popular[int(i)] = str(a).count(i)
-
-    most_popular = sorted(most_popular, key=lambda x: most_popular[x], reverse=True)[0]
-    
-
-    if a % most_popular**2 == 0:
-        print(a)
+    if ((4*18**3+5*18**2+1*18**1+int(x)*18**0) + (7*18**3+9*18**2+int(x)*18**1+2*18**0))%27==0:
+        print(x, ((4*18**3+5*18**2+1*18**1+int(x)*18**0) + (7*18**3+9*18**2+int(x)*18**1+2*18**0))/27)

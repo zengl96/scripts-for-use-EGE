@@ -2,16 +2,26 @@
 
 s = open('24/24.txt').readline()
 
-while 'FSRQ' in s: s = s.replace('FSRQ', ' ')
+
+while 'Z' in s: s = s.replace('Z', ' ')
 
 s = s.split(' ')
-# print(s, s[0], s[1])
 
-q = 0
-for i in range(0, len(s)):
+n = []
 
-    a = ''.join(s[i:i+81])
-    res = len(a) + 4*80+3+3
-    q = max(q,res)
+for i in s:
+    k = 1
+    try:
+        first = i[0]
+        for j in i[1:]:
+            if j != first:
+                k +=1
+                first = j
+            elif j == first:
+                n.append(k)
+                break
 
-print(q)
+    except: pass
+    finally: n.append(k)
+
+print(max(n))
