@@ -1,18 +1,14 @@
-
-
 from functools import lru_cache
+
 
 
 @lru_cache(None)
 def f(n):
 
-    if n == 0:
-        return 0
-    if n<3:
-        return 1
-    if n>=3:
-        return f(n-1)+f(n-2)
+    if n<5: return 4**4
+    if n> 4: return 4*f(n-4)+4
 
-for i in range(1,48):
-    print(f(i))
-print(f(47))
+for i in range(5,5000):
+    f(i)
+
+print(f(4048)/f(4036))

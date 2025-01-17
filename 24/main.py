@@ -2,26 +2,12 @@
 
 s = open('24/24.txt').readline()
 
-
-while 'Z' in s: s = s.replace('Z', ' ')
+s = s.replace('X', ' ')
 
 s = s.split(' ')
 
-n = []
+s = sorted(s, key=lambda x: x.count('Y'), reverse=1)
 
 for i in s:
-    k = 1
-    try:
-        first = i[0]
-        for j in i[1:]:
-            if j != first:
-                k +=1
-                first = j
-            elif j == first:
-                n.append(k)
-                break
-
-    except: pass
-    finally: n.append(k)
-
-print(max(n))
+    print(i, len(i), i.count('Y'))
+    input()

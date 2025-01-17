@@ -1,13 +1,14 @@
-from itertools import  permutations
+from itertools import  product
 from time import sleep
 
 
-c=[]
-for i in permutations('марина'):
+k = 0
+for i in product('люстра', repeat=5):
 
     a = ''.join(i)
-    if a[0] not in 'аи' and a not in c:
-        c.append(a)
 
+    if a.count('ю') <3 and a[-1] not in 'лстр':
+        print(a)
+        k+=1
 
-print(len(c))
+print(k)   

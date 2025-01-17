@@ -2,19 +2,13 @@
 
 
 
-def f(n, m, k=5):
+def f(n,m):
 
-    if k >= 0:
-        if n==m: return 0
-        elif k == 0: return 1
-    # if n == 20:
-    #     return 0
-    # if n == m: return 1
-    # if n>m: return 0
+    if n == 24: return 0
+    if n == m: return 1
 
-    return f(n+1,m, k-1) and f(n*2,m,k-1)
+    if n<m: return 0
 
-# print(f(1,2,5))
-for m in range(1,20):
+    return f(n-2,m) + f(n-3,m) + f(n//4,m)
 
-    print(f(1,m, 5), m)
+print(f(36,13))

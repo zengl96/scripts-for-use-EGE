@@ -5,14 +5,14 @@
 
 def f(n):
 
-
     b = bin(n)[2:]
 
-    if n%2 == 0:
-        b = b+b[-2:]
+    if n%5==0: 
+        b = b[:3]+b
     else:
-        b = '1'+b+'1'
+        b = b+bin(((n%5)*5))[2:]
 
-    return int(b, 2)
+    return int(b,2)
 
-print(min([f(s) for s in range(1,1000) if f(s)>130]))
+
+print(max([n for n in range(1,1000,2) if f(n)<313]))

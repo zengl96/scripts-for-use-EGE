@@ -2,8 +2,9 @@
 from ipaddress import *
 
 
-net = ip_network('192.168.156.224/255.255.255.240', 0)
+net = ip_network('123.222.111.192/255.255.255.248', 0)
 
-for i in net.hosts():
+for i in net:
 
-    print(i)
+    a = bin(int(i))[2:].zfill(32)
+    print(a)
