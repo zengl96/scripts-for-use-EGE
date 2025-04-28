@@ -1,0 +1,46 @@
+class DrawingApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Рисование с Ctrl")
+        
+        self.canvas = tk.Canvas(root, bg='white', width=800, height=600)
+        self.canvas.pack()
+
+        self.is_drawing = False
+
+        # Привязываем события мыши
+        self.canvas.bind("<Button-1>", self.start_drawing)
+        self.canvas.bind("<B1-Motion>", self.draw)
+        self.canvas.bind("<ButtonRelease-1>", self.stop_drawing)
+
+        # Привязываем события клавиатуры
+        self.root.bind("<Control_L>", self.ctrl_pressed)
+        self.root.bind("<Control_L>", self.ctrl_released, add='+')
+
+    def ctrl_pressed(self, event):
+        self.is_drawing = True
+
+    def ctrl_released(self, event):
+        self.is_drawing = False
+
+    def start_drawing(self, event):
+        if self.is_drawing:
+            self.last_x, self.last_y = event.x, event.y
+            self.canvas.bind("<Motion>", self.draw)
+
+    def draw(self, event):
+        if self.is_drawing:
+            x, y = event.x, event.y
+            self.canvas.create_line(self.last_x, self.last_y, x, y, fill='black', width=2)
+            self.last_x, self.last_y = x, y
+
+    def stop_drawing(self, event):
+        if self.is_drawing:
+            self.canvas.unbind("<Motion>")
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = DrawingApp(root)
+    root.mainloop()
+
+
